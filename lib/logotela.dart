@@ -1,3 +1,4 @@
+import 'package:appsamu/telacadastro.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -10,7 +11,11 @@ class _LogotelaState extends State<Logotela> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 5), () {});
+    Timer(const Duration(seconds: 5), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => Telacadastro()),
+      );
+    });
   }
 
   @override
