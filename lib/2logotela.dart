@@ -1,4 +1,4 @@
-import 'package:appsamu/telacadastro.dart';
+import 'package:appsamu/3telacadastro.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 

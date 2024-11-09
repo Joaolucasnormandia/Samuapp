@@ -1,4 +1,4 @@
-import 'package:appsamu/telatoken.dart';
+import 'package:appsamu/4Telachamado.dart';
 import 'package:flutter/material.dart';
 
 class Telacadastro extends StatefulWidget {
@@ -15,14 +15,14 @@ class CustomTextField extends StatelessWidget {
       width: 380,
       padding: EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Colors.orange, // Cor de fundo do campo de texto
-        borderRadius: BorderRadius.circular(30), // Bordas arredondadas
+        color: Colors.orange,
+        borderRadius: BorderRadius.circular(30),
       ),
       child: const TextField(
         textAlign: TextAlign.center,
         decoration: InputDecoration(
           hintText: 'Digite aqui...',
-          border: InputBorder.none, // Remove a borda padrão
+          border: InputBorder.none,
         ),
         style: TextStyle(
           fontSize: 20,
@@ -70,26 +70,17 @@ class _TelacadastroState extends State<Telacadastro> {
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            Center(
-                child:
-                    CustomTextField()), // Campo de texto personalizado para "CPF"
+            Center(child: CustomTextField()),
             const SizedBox(height: 20),
-            const Text(
-              'Localização',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-            ),
-            Image.asset(
-              'assets/loc.png',
-              width: 90,
-              height: 90,
-            ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: (){Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => telatoken()),
-             );}, 
-             child: Text('Logar'))
-            // Campo de texto personalizado para "Localização Automática"
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                        builder: (context) => const SamuHomePage()),
+                  );
+                },
+                child: Text('Logar'))
           ],
         ));
   }

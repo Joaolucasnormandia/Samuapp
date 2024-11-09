@@ -1,4 +1,4 @@
-import 'package:appsamu/logotela.dart';
+import 'package:appsamu/2logotela.dart';
 import 'package:flutter/material.dart';
 
 void main() {
