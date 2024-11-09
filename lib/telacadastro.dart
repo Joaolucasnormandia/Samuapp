@@ -1,3 +1,4 @@
+import 'package:appsamu/telatoken.dart';
 import 'package:flutter/material.dart';
 
 class Telacadastro extends StatefulWidget {
@@ -83,6 +84,11 @@ class _TelacadastroState extends State<Telacadastro> {
               height: 90,
             ),
             const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: (){Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => telatoken()),
+             );}, 
+             child: Text('Logar'))
             // Campo de texto personalizado para "Localização Automática"
           ],
         ));
