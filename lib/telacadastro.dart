@@ -11,14 +11,16 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 380,
       padding: EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: Colors.orange, // Cor de fundo do campo de texto
         borderRadius: BorderRadius.circular(30), // Bordas arredondadas
       ),
       child: const TextField(
+        textAlign: TextAlign.center,
         decoration: InputDecoration(
-          hintText: 'Digite aqui...', // Texto de exemplo
+          hintText: 'Digite aqui...',
           border: InputBorder.none, // Remove a borda padrão
         ),
         style: TextStyle(
@@ -66,9 +68,10 @@ class _TelacadastroState extends State<Telacadastro> {
               'CPF:',
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(
-                height: 10), // Campo de texto personalizado para "CPF"
-            const CustomTextField(),
+            const SizedBox(height: 10),
+            Center(
+                child:
+                    CustomTextField()), // Campo de texto personalizado para "CPF"
             const SizedBox(height: 20),
             const Text(
               'Localização',
