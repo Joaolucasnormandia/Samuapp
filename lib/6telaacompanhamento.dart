@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 class PostosController extends ChangeNotifier {
@@ -82,29 +83,25 @@ class TelaAcompanhamento extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30),
-            Consumer<PostosController>(
-              builder: (context, controller, child) {
-                if (controller.erro.isNotEmpty) {
-                  return Center(
-                    child: Text(
-                      'Erro: ${controller.erro}',
-                      style: const TextStyle(color: Colors.red, fontSize: 18),
-                    ),
-                  );
-                }
-                return Center(
-                  child: Text(
-                    'Latitude: ${controller.lat}\nLongitude: ${controller.long}',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                );
-              },
+            // Wrap the GoogleMap with an Expanded widget to prevent overflow
+            Expanded(
+              child: ChangeNotifierProvider<PostosController>(
+                create: (context) => PostosController(),
+                child: Builder(builder: (context) {
+                  final local = context.watch<PostosController>();
+
+                  return GoogleMap(
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(local.lat, local.long),
+                      zoom: 18,
+                    ), // CameraPosition
+                    zoomControlsEnabled: true,
+                    mapType: MapType.normal,
+                    myLocationEnabled: true,
+                  ); // GoogleMap
+                }), // Builder
+              ),
             ),
-            const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
