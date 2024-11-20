@@ -2,47 +2,32 @@ import 'package:appsamu/6telaacompanhamento.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SamuApp extends StatelessWidget {
-  const SamuApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'SAMU 24H',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: const SamuHomePage(),
-    );
-  }
-}
-
-void _showTokenDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text('Token Gerado'),
-        content: const Text('Seu token de atendimento é: SAMU-192-001.'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                    builder: (context) => const Telaacompanhamento()),
-              );
-            },
-            child: const Text('OK'),
-          ),
-        ],
-      );
-    },
-  );
-}
-
 class SamuHomePage extends StatelessWidget {
   const SamuHomePage({super.key});
+
+  // Método para exibir o pop-up de token
+  void _showTokenDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Token Gerado'),
+          content: const Text('Seu token de atendimento é: SAMU-192-001.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                      builder: (context) => const Telaacompanhamento()),
+                );
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   void _callSAMU(BuildContext context) async {
     final Uri phoneNumber =
@@ -50,6 +35,9 @@ class SamuHomePage extends StatelessWidget {
 
     if (await canLaunchUrl(phoneNumber)) {
       await launchUrl(phoneNumber);
+
+      await Future.delayed(const Duration(seconds: 5));
+
       _showTokenDialog(context);
     } else {
       throw 'Não foi possível fazer a ligação para $phoneNumber';
@@ -78,9 +66,7 @@ class SamuHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () => _callSAMU(context),
               style: ElevatedButton.styleFrom(

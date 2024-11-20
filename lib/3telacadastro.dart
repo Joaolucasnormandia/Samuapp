@@ -80,7 +80,7 @@ class _TelacadastroState extends State<Telacadastro> {
                         builder: (context) => const SamuHomePage()),
                   );
                 },
-                child: Text('Logar'))
+                child: const Text('Logar'))
           ],
         ));
   }
