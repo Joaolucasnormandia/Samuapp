@@ -1,4 +1,4 @@
-import 'package:appsamu/4Telachamado.dart';
+import 'package:appsamu/4TelaChamado.dart';
 import 'package:flutter/material.dart';
 
 class Telacadastro extends StatefulWidget {

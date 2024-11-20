@@ -22,17 +22,17 @@ class Telaacompanhamento extends StatelessWidget {
         backgroundColor: const Color.fromARGB(244, 233, 95, 2),
       ),
       body: Column(children: [
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'STATUS: Á CAMINHO',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Image.asset(
               'assets/bolaverde.png',
               width: 50,
@@ -41,7 +41,7 @@ class Telaacompanhamento extends StatelessWidget {
           ],
         ),
         Image.asset('assets/mapateste.png'),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         ElevatedButton(
@@ -51,7 +51,7 @@ class Telaacompanhamento extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
-            padding: EdgeInsets.symmetric(horizontal: 48, vertical: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
           ),
           child: const Text(
             'INSTRUÇÃO DE ESPERA',
@@ -62,7 +62,7 @@ class Telaacompanhamento extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         ElevatedButton(
@@ -72,7 +72,7 @@ class Telaacompanhamento extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
-            padding: EdgeInsets.symmetric(horizontal: 48, vertical: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
           ),
           child: const Text(
             'CANCELAR CHAMADO',
