@@ -88,7 +88,7 @@ class telatokenState extends State<telatoken> {
                     )));
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                          builder: (context) => const Telaacompanhamento()),
+                          builder: (context) => const TelaAcompanhamento()),
                     );
                     //adicione aba gay
                   } else {

@@ -18,7 +18,7 @@ class SamuHomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                      builder: (context) => const Telaacompanhamento()),
+                      builder: (context) => const TelaAcompanhamento()),
                 );
               },
               child: const Text('OK'),
@@ -84,7 +84,12 @@ class SamuHomePage extends StatelessWidget {
             ),
             const SizedBox(height: 13),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                      builder: (context) => const TelaAcompanhamento()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 255, 150, 0),
                 padding:
