@@ -66,24 +66,23 @@ class TelaAcompanhamento extends StatelessWidget {
         ),
         body: Column(
           children: [
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
                   'STATUS: Á CAMINHO',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(width: 10),
                 Image.asset(
                   'assets/bolaverde.png',
-                  width: 50,
-                  height: 50,
+                  width: 25,
+                  height: 25,
                 ),
               ],
             ),
             const SizedBox(height: 30),
-            // Wrap the GoogleMap with an Expanded widget to prevent overflow
             Expanded(
               child: ChangeNotifierProvider<PostosController>(
                 create: (context) => PostosController(),
@@ -94,14 +93,20 @@ class TelaAcompanhamento extends StatelessWidget {
                     initialCameraPosition: CameraPosition(
                       target: LatLng(local.lat, local.long),
                       zoom: 18,
-                    ), // CameraPosition
+                    ),
                     zoomControlsEnabled: true,
                     mapType: MapType.normal,
                     myLocationEnabled: true,
-                  ); // GoogleMap
-                }), // Builder
+                    onMapCreated: (GoogleMapController controller) {
+                      controller.animateCamera(
+                        CameraUpdate.newLatLng(LatLng(local.lat, local.long)),
+                      );
+                    },
+                  );
+                }),
               ),
             ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
